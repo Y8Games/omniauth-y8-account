@@ -1,48 +1,54 @@
 # OmniAuth IdNet (0.0.2)
 
-This is the official OmniAuth strategy for authenticating to IdNet. To
-use it, you'll need IdNet application ID and SECRET.
+This is the official OmniAuth strategy for authenticating to [Idnet](http://id.net). To
+use it, you'll need Idnet consumer application ID and SECRET.
 
 ## Basic Usage
-Currently, you have to initialize OmniAuth (with Id.net strategy) like this:
+Currently, you have to initialize OmniAuth (with Idnet strategy) like this:
 
     provider :idnet, APP_CONFIG[:app_id], APP_CONFIG[:app_secret]
 
-This way, idnet strategy will be initialized with the set of default fields:
+This way, Idnet strategy will be initialized with the set of default fields:
 
-    DEFAULT =
-      [
-        "nickname",
-        "first_name",
-        "last_name",
-        "email",
-        "language",
-        "gender",
-        "street_address",
-        "city",
-        "country",
-        "state_or_province",
-        "zip"
-      ]
+```ruby
+DEFAULT =
+  [
+    "nickname",
+    "first_name",
+    "last_name",
+    "email",
+    "language",
+    "gender",
+    "street_address",
+    "city",
+    "country",
+    "state_or_province",
+    "zip"
+  ]
+```
 
 Also, you may initialize it with the set of default fields + custom fields for your
 consumer application:
 
-    provider :idnet, APP_CONFIG[:app_id], APP_CONFIG[:app_secret],
-             :fields => OmniAuth::Idnet::DEFAULT + ['home_planet', 'anything_else']
+```ruby
+provider :idnet, APP_CONFIG[:app_id], APP_CONFIG[:app_secret],
+         :fields => OmniAuth::Idnet::DEFAULT + ['home_planet', 'anything_else']
+```
 
 Or, you may totally override default fields by your own (in any case 'uid' field will
 be available for this startegy, and this could not be changed):
 
-    provider :idnet, APP_CONFIG[:app_id], APP_CONFIG[:app_secret],
-             :fields => ['foo', 'bar']
+```ruby
+provider :idnet, APP_CONFIG[:app_id], APP_CONFIG[:app_secret],
+         :fields => ['foo', 'bar']
+```
 
-This should be placed, for example, in `config/initializers/omniauth.rb`, and it allows
-you to use your local developments ID.NET server, or staging.
+This should be placed, for example, into `config/initializers/omniauth.rb`.
 
-    APP_CONFIG[:app_id] - application ID
-    APP_CONFIG[:app_secret] - application SECRET
-
+```ruby
+APP_CONFIG[:app_id] - application ID
+APP_CONFIG[:app_secret] - application SECRET
+```
 
 ## License
 
