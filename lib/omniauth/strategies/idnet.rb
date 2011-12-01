@@ -12,7 +12,7 @@ module OmniAuth
         :site             => "http://id.net/",
         :authorize_url    => "http://id.net/oauth/authorize",
         :access_token_url => "http://id.net/oauth/token"
-      }
+      } unless args.include?('client_options')
 
       option :access_token_options, {
         :header_format => 'OAuth %s',
