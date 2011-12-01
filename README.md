@@ -35,6 +35,12 @@ provider :idnet, APP_CONFIG[:app_id], APP_CONFIG[:app_secret],
          :fields => OmniAuth::Idnet::DEFAULT + ['home_planet', 'anything_else']
 ```
 
+Where,
+```ruby
+APP_CONFIG[:app_id] - application ID
+APP_CONFIG[:app_secret] - application SECRET
+```
+
 Or, you may totally override default fields by your own (in any case 'uid' field will
 be available for this startegy, and this could not be changed):
 
@@ -43,12 +49,20 @@ provider :idnet, APP_CONFIG[:app_id], APP_CONFIG[:app_secret],
          :fields => ['foo', 'bar']
 ```
 
-This should be placed, for example, into `config/initializers/omniauth.rb`.
+Also, you may (if you know what to pass there, in this example, it's `http://custom.idnet.server.org/`) use custom provider URL:
 
 ```ruby
-APP_CONFIG[:app_id] - application ID
-APP_CONFIG[:app_secret] - application SECRET
+Rails.application.config.middleware.use OmniAuth::Builder do
+  provider :idnet, APP_CONFIG[:app_id], APP_CONFIG[:app_secret],
+           :fields => OmniAuth::Idnet::DEFAULT + ['dob'],
+           :client_options => {:site => "http://custom.idnet.server.org/",
+                               :authorize_url => "http://custom.idnet.server.org/oauth/authorize",
+                               :access_token_url => "http://custom.idnet.server.org/oauth/token"}
+end
 ```
+If no `:client_options` passed, default `http://id.net/` provider URL will be used.
+
+This should be placed, for example, into `config/initializers/omniauth.rb`.
 
 ## License
 
