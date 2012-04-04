@@ -1,4 +1,4 @@
-# OmniAuth IdNet (0.0.3)
+# OmniAuth IdNet (0.0.4)
 
 This is the official OmniAuth strategy for authenticating to [Idnet](http://id.net). To
 use it, you'll need Idnet consumer application ID and SECRET.
@@ -63,6 +63,23 @@ end
 If no `:client_options` passed, default `http://id.net/` provider URL will be used.
 
 This should be placed, for example, into `config/initializers/omniauth.rb`.
+
+### Auth form pre-fill
+Starting from version 0.0.4 you can pre-fill auth form. It could be useful when you migrate from existing authentification system to IDnet.
+Currently available for pre-fill fields is:
+
+```ruby
+email
+nickname
+dob
+country
+gender
+```
+This way you can format a URI like:
+
+    /auth/idnet?email=user@name.com&nickname=user42&gender=female&country=ALA&dob=1982-01-01
+
+to pre-fill IDnet form.
 
 ## License
 
