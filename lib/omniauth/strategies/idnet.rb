@@ -51,11 +51,11 @@ module OmniAuth
       def authorize_params
         super.tap do |params|
           params.merge!(:display => request.params['display']) if request.params['display']
-          params.merge!(:email => request.params['email']) if request.params['email']
-          params.merge!(:nickname => request.params['nickname']) if request.params['nickname']
-          params.merge!(:gender => request.params['gender']) if request.params['gender']
-          params.merge!(:dob => request.params['dob']) if request.params['dob']
-          params.merge!(:country => request.params['country']) if request.params['country']
+          if request.params['prefill']
+            request.params['prefill'].each do |key, value|
+              params.merge!(("prefill[" + key.to_s + "]").to_sym => value)
+            end
+          end
         end
       end
     end
