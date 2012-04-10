@@ -66,7 +66,7 @@ This should be placed, for example, into `config/initializers/omniauth.rb`.
 
 ### Auth form pre-fill
 Starting from version 0.0.4 you can pre-fill auth form. It could be useful when you migrate from existing authentification system to IDnet.
-Currently available for pre-fill fields is:
+Currently available for pre-fill fields are:
 
 ```ruby
 email
