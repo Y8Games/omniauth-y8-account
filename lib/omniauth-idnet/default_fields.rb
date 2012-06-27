@@ -12,7 +12,8 @@ module OmniAuth
         "city",
         "country",
         "state_or_province",
-        "zip"
+        "zip",
+        "dob"
       ]
   end
 end
