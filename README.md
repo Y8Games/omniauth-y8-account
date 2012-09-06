@@ -1,14 +1,14 @@
 # OmniAuth IdNet (0.0.6)
 
-This is the official OmniAuth strategy for authenticating to [Idnet](http://id.net). To
-use it, you'll need Idnet consumer application ID and SECRET.
+This is the official OmniAuth strategy for authenticating to [Id.net](http://id.net). To
+use it, you'll need Id.net consumer application ID and SECRET.
 
 ## Basic Usage
-Currently, you have to initialize OmniAuth (with Idnet strategy) like this:
+Currently, you have to initialize OmniAuth (with Id.net strategy) like this:
 
     provider :idnet, APP_CONFIG[:app_id], APP_CONFIG[:app_secret]
 
-This way, Idnet strategy will be initialized with the set of default fields:
+This way, Id.net strategy will be initialized with the set of default fields:
 
 ```ruby
 DEFAULT =
@@ -91,7 +91,7 @@ For example, for Ruby on Rails it could be included like this:
 ```ruby
 <%= javascript_include_tag "http://#{APP_CONFIG[:idnet][:server]}/api/popup.js" %>
 ```
-Then you may use jQuery to handle id.net authorization buttno clicks:
+Then you may use jQuery to handle id.net authorization button clicks:
 
 ```javascript
 var set_idnet_handlers = function () {
