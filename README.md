@@ -81,6 +81,42 @@ This way you can format a URI like:
 
 to pre-fill IDnet form.
 
+### Authentication popup
+To invoke authentication popup, id.net provides a handy Javascrip available at:
+```
+https://www.id.net/api/popup.js
+```
+
+For example, for Ruby on Rails it could be included like this:
+```ruby
+<%= javascript_include_tag "http://#{APP_CONFIG[:idnet][:server]}/api/popup.js" %>
+```
+Then you may use jQuery to handle id.net authorization buttno clicks:
+
+```javascript
+var set_idnet_handlers = function () {
+  $(".js-idnet-link.login").click(function() {
+    open_idnet_signin_signup(this.href);
+    return false;
+  });
+
+  $(".js-idnet-link.register").click(function() {
+    var href = this.href;
+    if (!href.match(/\?/)) href += '?';
+    open_idnet_register(href + '&popup_window=true');
+    return false;
+  });
+}
+```
+
+And HTML for button:
+```html
+<a class="js-idnet-link login" href="/auth/idnet">
+<img src="/images/id.net-logo.png" alt="Id.net-logo">
+<span class="id-net-link-label">Login with id.net</span>
+</a>
+```
+
 ## License
 
 Copyright (c) 2011-2012 Vlad Shvedov and Heliostech.hk
