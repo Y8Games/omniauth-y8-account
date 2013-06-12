@@ -13,7 +13,8 @@ module OmniAuth
         "country",
         "state_or_province",
         "zip",
-        "dob"
+        "dob",
+        "level"
       ]
   end
 end
