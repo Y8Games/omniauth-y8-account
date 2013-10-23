@@ -57,18 +57,21 @@ describe OmniAuth::Strategies::Idnet do
     let(:info) do
       {
         'email' => 'you@example.com',
-        'level' => 5,
-        'city' => nil,
-        'country' => nil,
+        "nickname" => nil,
+        'first_name' => nil,
+        'last_name' => nil,
         'dob' => nil,
         'gender' => nil,
         'language' => nil,
-        'first_name' => nil,
-        'last_name' => nil,
-        "nickname" => nil,
         "state_or_province" => nil,
         "street_address" => nil,
-        "zip" => nil
+        "zipcode" => nil,
+        'city' => nil,
+        'country' => nil,
+        'level' => 5,
+        "risk" => nil,
+        "avatars" => nil,
+        "version" => nil
       }
     end
 
