@@ -23,9 +23,12 @@ DEFAULT =
     "city",
     "country",
     "state_or_province",
-    "zip",
+    "zipcode",
     "dob",
-    "level"
+    "level",
+    "avatars",
+    "version",
+    "risk"
   ]
 ```
 
