@@ -10,7 +10,7 @@ module OmniAuth
 
       option :client_options, {
         :site => "https://www.id.net",
-        :ssl => true
+        :ssl => { verify: true }
       }
 
       option :authorize_options, [:scope, :display]

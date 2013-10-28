@@ -48,7 +48,7 @@ Rails.application.config.middleware.use OmniAuth::Builder do
            :client_options => {:site => "http://custom.idnet.server.org/",
                                :authorize_url => "http://custom.idnet.server.org/oauth/authorize",
                                :token_url => "http://custom.idnet.server.org/oauth/token",
-                               :ssl => false # if your provider does not use ssl
+                               :ssl => {:verify => false} # if your provider does not use ssl
                              }
 end
 ```
