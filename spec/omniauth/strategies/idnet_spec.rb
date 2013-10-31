@@ -65,7 +65,7 @@ describe OmniAuth::Strategies::Idnet do
         'language' => nil,
         "state_or_province" => nil,
         "street_address" => nil,
-        "zipcode" => nil,
+        "zip" => nil,
         'city' => nil,
         'country' => nil,
         'level' => 5,

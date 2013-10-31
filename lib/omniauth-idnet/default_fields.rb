@@ -12,7 +12,7 @@ module OmniAuth
         "city",
         "country",
         "state_or_province",
-        "zipcode",
+        "zip",
         "dob",
         "level",
         "avatars",
