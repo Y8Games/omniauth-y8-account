@@ -1,4 +1,4 @@
-# OmniAuth IdNet (0.0.6)
+# OmniAuth IdNet (0.0.11)
 
 This is the official OmniAuth strategy for authenticating to [Id.net](https://www.id.net). To
 use it, you'll need Id.net consumer application ID and SECRET.
