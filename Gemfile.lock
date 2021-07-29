@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    omniauth-y8-account (0.0.10)
+    omniauth-y8-account (0.2.0)
       omniauth (~> 1.1)
       omniauth-oauth2 (~> 1.1)
 

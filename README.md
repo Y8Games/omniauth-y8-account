@@ -1,4 +1,4 @@
-# OmniAuth Y8 Account (0.0.11)
+# OmniAuth Y8 Account (0.2.0)
 
 This is the official OmniAuth strategy for authenticating to [Id.net](https://www.id.net). To
 use it, you'll need Id.net consumer application ID and SECRET.
