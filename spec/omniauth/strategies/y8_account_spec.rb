@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 describe OmniAuth::Strategies::Y8Account do
-
   before do
     OmniAuth.config.test_mode = true
   end
