@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-# Specify your gem's dependencies in omniauth-idnet.gemspec
+# Specify your gem's dependencies in omniauth-y8-account.gemspec
 gemspec
 
 group :development, :test do

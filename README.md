@@ -1,4 +1,4 @@
-# OmniAuth IdNet (0.0.11)
+# OmniAuth Y8 Account (0.0.11)
 
 This is the official OmniAuth strategy for authenticating to [Id.net](https://www.id.net). To
 use it, you'll need Id.net consumer application ID and SECRET.
@@ -6,7 +6,7 @@ use it, you'll need Id.net consumer application ID and SECRET.
 ## Basic Usage
 Currently, you have to initialize OmniAuth (with Id.net strategy) like this:
 
-    provider :idnet, APP_CONFIG[:app_id], APP_CONFIG[:app_secret]
+    provider :y8_account, APP_CONFIG[:app_id], APP_CONFIG[:app_secret]
 
 This way, Id.net strategy will be initialized with the set of default fields:
 
@@ -38,33 +38,31 @@ APP_CONFIG[:app_id] - application ID
 APP_CONFIG[:app_secret] - application SECRET
 ```
 
-Also, you may (if you know what to pass there, in this example, it's `http://custom.idnet.server.org/`) use custom provider URL:
-
 See [OAuth2::Client description](https://github.com/intridea/oauth2/blob/master/lib/oauth2/client.rb) for more details
 
 ```ruby
 Rails.application.config.middleware.use OmniAuth::Builder do
-  provider :idnet, APP_CONFIG[:app_id], APP_CONFIG[:app_secret],
-           :client_options => {:site => "http://custom.idnet.server.org/",
-                               :authorize_url => "http://custom.idnet.server.org/oauth/authorize",
-                               :token_url => "http://custom.idnet.server.org/oauth/token",
+  provider :y8_account, APP_CONFIG[:app_id], APP_CONFIG[:app_secret],
+           :client_options => {:site => "http://custom.y8_account.server.org/",
+                               :authorize_url => "http://custom.y8_account.server.org/oauth/authorize",
+                               :token_url => "http://custom.y8_account.server.org/oauth/token",
                                :ssl => {:verify => false} # if your provider does not use ssl
                              }
 end
 ```
-If no `:client_options` passed, default `https://www.id.net/` provider URL will be used.
+If no `:client_options` passed, default `https://account.y8.com/` provider URL will be used.
 
 This should be placed, for example, into `config/initializers/omniauth.rb`.
 
 ### Authentication popup
 To invoke authentication popup, id.net provides a handy Javascrip available at:
 ```
-https://www.id.net/api/popup.js
+https://account.y8.com/api/popup.js
 ```
 
 For example, for Ruby on Rails it could be included like this:
 ```ruby
-<%= javascript_include_tag "http://#{APP_CONFIG[:idnet][:server]}/api/popup.js" %>
+<%= javascript_include_tag "http://#{APP_CONFIG[:y8_account][:server]}/api/popup.js" %>
 ```
 Then you may use jQuery to handle id.net authorization button clicks:
 
@@ -86,9 +84,9 @@ var set_idnet_handlers = function () {
 
 And HTML for button:
 ```html
-<a class="js-idnet-link login" href="/auth/idnet">
-<img src="/images/id.net-logo.png" alt="Id.net-logo">
-<span class="id-net-link-label">Login with id.net</span>
+<a class="js-idnet-link login" href="/auth/y8_account">
+<img src="/images/id.net-logo.png" alt="y8-account-logo">
+<span class="id-net-link-label">Login with Y8 Account</span>
 </a>
 ```
 

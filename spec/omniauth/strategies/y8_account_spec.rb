@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe OmniAuth::Strategies::Idnet do
+describe OmniAuth::Strategies::Y8Account do
 
   before do
     OmniAuth.config.test_mode = true
@@ -11,16 +11,16 @@ describe OmniAuth::Strategies::Idnet do
   end
 
   subject do
-    OmniAuth::Strategies::Idnet.new({})
+    OmniAuth::Strategies::Y8Account.new({})
   end
 
   context 'client options' do
     it 'should have correct name' do
-      expect(subject.options.name).to eq('idnet')
+      expect(subject.options.name).to eq('y8_account')
     end
 
     it 'should have correct site' do
-      expect(subject.options.client_options.site).to eq('https://www.id.net')
+      expect(subject.options.client_options.site).to eq('https://account.y8.com')
     end
 
     it 'should have correct authorize url' do
@@ -30,7 +30,7 @@ describe OmniAuth::Strategies::Idnet do
 
     it 'should have correct token url' do
       expect(subject.client.options[:token_url]).to eq("/oauth/token")
-      expect(subject.client.token_url).to eq('https://www.id.net/oauth/token')
+      expect(subject.client.token_url).to eq('https://account.y8.com/oauth/token')
     end
 
     it 'should have correct authorize options' do

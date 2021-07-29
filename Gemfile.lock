@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    omniauth-idnet (0.0.10)
+    omniauth-y8-account (0.0.10)
       omniauth (~> 1.1)
       omniauth-oauth2 (~> 1.1)
 
@@ -94,7 +94,7 @@ DEPENDENCIES
   guard
   guard-bundler
   guard-rspec
-  omniauth-idnet!
+  omniauth-y8-account!
   rack-test
   rake
   rb-fsevent

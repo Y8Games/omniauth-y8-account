@@ -1,5 +1,5 @@
 module OmniAuth
-  module Idnet
+  module Y8Account
     DEFAULT =
       [
         "nickname",

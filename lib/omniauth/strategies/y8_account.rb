@@ -2,15 +2,15 @@ require 'omniauth-oauth2'
 
 module OmniAuth
   module Strategies
-    class Idnet < OmniAuth::Strategies::OAuth2
+    class Y8Account < OmniAuth::Strategies::OAuth2
 
-      option :name, "idnet"
+      option :name, 'y8_account'
 
-      option :fields, OmniAuth::Idnet::DEFAULT
+      option :fields, OmniAuth::Y8Account::DEFAULT
 
       option :client_options, {
-        :site => "https://www.id.net",
-        :ssl => { verify: true }
+        site: 'https://account.y8.com',
+        ssl: { verify: true }
       }
 
       option :authorize_options, [:scope, :display]

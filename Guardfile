@@ -6,5 +6,5 @@ end
 
 guard 'bundler' do
   watch('Gemfile')
-  watch('omniauth-idnet.gemspec')
+  watch('omniauth-y8-account.gemspec')
 end
