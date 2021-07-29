@@ -25,7 +25,7 @@ describe OmniAuth::Strategies::Y8Account do
 
     it 'should have correct authorize url' do
       expect(subject.client.options[:authorize_url]).to eq('/oauth/authorize')
-      expect(subject.client.authorize_url).to eq('https://www.id.net/oauth/authorize')
+      expect(subject.client.authorize_url).to eq('https://account.y8.com/oauth/authorize')
     end
 
     it 'should have correct token url' do

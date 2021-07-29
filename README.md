@@ -1,14 +1,14 @@
 # OmniAuth Y8 Account (0.2.0)
 
-This is the official OmniAuth strategy for authenticating to [Id.net](https://www.id.net). To
-use it, you'll need Id.net consumer application ID and SECRET.
+This is the official OmniAuth strategy for authenticating to [Y8 Account](https://account.y8.com). To
+use it, you'll need Y* Account consumer application ID and SECRET.
 
 ## Basic Usage
-Currently, you have to initialize OmniAuth (with Id.net strategy) like this:
+Currently, you have to initialize OmniAuth (with Y8 Account strategy) like this:
 
     provider :y8_account, APP_CONFIG[:app_id], APP_CONFIG[:app_secret]
 
-This way, Id.net strategy will be initialized with the set of default fields:
+This way, Y8 Account strategy will be initialized with the set of default fields:
 
 ```ruby
 DEFAULT =
@@ -55,7 +55,7 @@ If no `:client_options` passed, default `https://account.y8.com/` provider URL w
 This should be placed, for example, into `config/initializers/omniauth.rb`.
 
 ### Authentication popup
-To invoke authentication popup, id.net provides a handy Javascrip available at:
+To invoke authentication popup, Y8 Account provides a handy Javascrip available at:
 ```
 https://account.y8.com/api/popup.js
 ```
@@ -64,16 +64,16 @@ For example, for Ruby on Rails it could be included like this:
 ```ruby
 <%= javascript_include_tag "http://#{APP_CONFIG[:y8_account][:server]}/api/popup.js" %>
 ```
-Then you may use jQuery to handle id.net authorization button clicks:
+Then you may use jQuery to handle Y8 Account authorization button clicks:
 
 ```javascript
-var set_idnet_handlers = function () {
-  $(".js-idnet-link.login").click(function() {
-    open_idnet_signin_signup(this.href);
+var set_y8_account_handlers = function () {
+  $(".js-y8-account-link.login").click(function() {
+    open_y8_account_signin_signup(this.href);
     return false;
   });
 
-  $(".js-idnet-link.register").click(function() {
+  $(".js-y8-account-link.register").click(function() {
     var href = this.href;
     if (!href.match(/\?/)) href += '?';
     open_idnet_register(href + '&popup_window=true');
@@ -84,9 +84,9 @@ var set_idnet_handlers = function () {
 
 And HTML for button:
 ```html
-<a class="js-idnet-link login" href="/auth/y8_account">
-<img src="/images/id.net-logo.png" alt="y8-account-logo">
-<span class="id-net-link-label">Login with Y8 Account</span>
+<a class="js-y8-account-link login" href="/auth/y8_account">
+<img src="/images/y8-account-logo.png" alt="y8-account-logo">
+<span class="y8-account-link-label">Login with Y8 Account</span>
 </a>
 ```
 
