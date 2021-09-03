@@ -1,7 +1,7 @@
-# OmniAuth Y8 Account (0.2.0)
+# OmniAuth Y8 Account (0.2.1)
 
 This is the official OmniAuth strategy for authenticating to [Y8 Account](https://account.y8.com). To
-use it, you'll need Y* Account consumer application ID and SECRET.
+use it, you'll need Y8 Account consumer application ID and SECRET.
 
 ## Basic Usage
 Currently, you have to initialize OmniAuth (with Y8 Account strategy) like this:
@@ -12,23 +12,23 @@ This way, Y8 Account strategy will be initialized with the set of default fields
 
 ```ruby
 DEFAULT =
-  [
-    "nickname",
-    "first_name",
-    "last_name",
-    "email",
-    "language",
-    "gender",
-    "street_address",
-    "city",
-    "country",
-    "state_or_province",
-    "zip",
-    "dob",
-    "level",
-    "avatars",
-    "version",
-    "risk"
+  %w[
+    nickname
+    first_name
+    last_name
+    email
+    language
+    gender
+    street_address
+    city
+    country
+    state_or_province
+    zip
+    dob
+    level
+    avatars
+    version
+    risk
   ]
 ```
 
@@ -45,8 +45,7 @@ Rails.application.config.middleware.use OmniAuth::Builder do
   provider :y8_account, APP_CONFIG[:app_id], APP_CONFIG[:app_secret],
            :client_options => {:site => "http://custom.y8_account.server.org/",
                                :authorize_url => "http://custom.y8_account.server.org/oauth/authorize",
-                               :token_url => "http://custom.y8_account.server.org/oauth/token",
-                               :ssl => {:verify => false} # if your provider does not use ssl
+                               :token_url => "http://custom.y8_account.server.org/oauth/token"
                              }
 end
 ```

@@ -3,7 +3,6 @@ require 'omniauth-oauth2'
 module OmniAuth
   module Strategies
     class Y8Account < OmniAuth::Strategies::OAuth2
-
       option :name, 'y8_account'
 
       option :fields, OmniAuth::Y8Account::DEFAULT
