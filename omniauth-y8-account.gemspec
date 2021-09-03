@@ -2,8 +2,8 @@
 require File.expand_path('../lib/omniauth-y8_account/version', __FILE__)
 
 Gem::Specification.new do |gem|
-  gem.authors       = ["Vlad Shvedov", "Hery Ramihajamalala"]
-  gem.email         = ["vshvedov@heliostech.hk", "hery@heliostech.fr"]
+  gem.authors       = ['François Turbelin', 'Tomas Brazys']
+  gem.email         = ['francois.t@webgroup-limited.com', 'tomas.b@webgroup-limited.com']
   gem.description   = %q{Official OmniAuth strategy for Y8 Account.}
   gem.summary       = %q{Official OmniAuth strategy for Y8 Account.}
   gem.homepage      = 'https://github.com/Y8Games/omniauth-y8_account'
