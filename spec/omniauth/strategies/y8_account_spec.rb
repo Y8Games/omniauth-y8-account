@@ -38,16 +38,16 @@ describe OmniAuth::Strategies::Y8Account do
   end
 
   describe '#raw_info' do
-    let(:access_token) { stub('AccessToken', :options => {}) }
-    let(:parsed_response) { stub('ParsedResponse') }
-    let(:response) { stub('Response', :parsed => parsed_response) }
+    let(:access_token) { double('AccessToken', :options => {}) }
+    let(:parsed_response) { double('ParsedResponse') }
+    let(:response) { double('Response', :parsed => parsed_response) }
 
     before do
-      subject.stub!(:access_token).and_return(access_token)
+      expect(subject).to receive(:access_token).and_return(access_token)
+      expect(access_token).to receive(:get).with('/api/profile').and_return(response)
     end
 
     it 'should fetch info from /api/profile' do
-      access_token.should_receive(:get).with('/api/profile').and_return(response)
       expect(subject.raw_info).to eq(parsed_response)
     end
   end
@@ -75,7 +75,7 @@ describe OmniAuth::Strategies::Y8Account do
     end
 
     before do
-      subject.stub!(:raw_info).and_return(info.select{|k,v| ['email', 'level'].include?(k)}.merge('pid' => '123456'))
+      expect(subject).to receive(:raw_info).and_return(info.select{|k,v| ['email', 'level'].include?(k)}.merge('pid' => '123456')).at_least(:once)
     end
 
     it 'should return email in info' do
@@ -105,7 +105,7 @@ describe OmniAuth::Strategies::Y8Account do
 
     it 'should include meta' do
       expect(request.params).to eq({'client_id' => '123456', 'prefill' => {'alternate' => 'Site'}, 'meta' => {'nickname' => 'john'}})
-      subject.stub!(:request).and_return(request)
+      expect(subject).to receive(:request).and_return(request).at_least(:once)
       expect(subject.authorize_params).to eq({
         'meta[nickname]' => 'john',
         'state' => subject.options.authorize_params[:state],
