@@ -23,12 +23,12 @@ describe OmniAuth::Strategies::Y8Account do
     end
 
     it 'should have correct authorize url' do
-      expect(subject.client.options[:authorize_url]).to eq('/oauth/authorize')
+      expect(subject.client.options[:authorize_url]).to eq('oauth/authorize')
       expect(subject.client.authorize_url).to eq('https://account.y8.com/oauth/authorize')
     end
 
     it 'should have correct token url' do
-      expect(subject.client.options[:token_url]).to eq("/oauth/token")
+      expect(subject.client.options[:token_url]).to eq('oauth/token')
       expect(subject.client.token_url).to eq('https://account.y8.com/oauth/token')
     end
 
