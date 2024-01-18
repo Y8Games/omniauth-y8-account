@@ -1,4 +1,4 @@
-# OmniAuth Y8 Account (0.2.1)
+# OmniAuth Y8 Account (0.3.0)
 
 This is the official OmniAuth strategy for authenticating to [Y8 Account](https://account.y8.com). To
 use it, you'll need Y8 Account consumer application ID and SECRET.
