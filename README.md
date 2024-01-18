@@ -8,6 +8,12 @@ Currently, you have to initialize OmniAuth (with Y8 Account strategy) like this:
 
     provider :y8_account, APP_CONFIG[:app_id], APP_CONFIG[:app_secret]
 
+Where,
+```ruby
+APP_CONFIG[:app_id] - application ID
+APP_CONFIG[:app_secret] - application SECRET
+```
+
 This way, Y8 Account strategy will be initialized with the set of default fields:
 
 ```ruby
@@ -32,21 +38,16 @@ DEFAULT =
   ]
 ```
 
-Where,
-```ruby
-APP_CONFIG[:app_id] - application ID
-APP_CONFIG[:app_secret] - application SECRET
-```
-
-See [OAuth2::Client description](https://github.com/intridea/oauth2/blob/master/lib/oauth2/client.rb) for more details
+See [OAuth2::Client description](https://gitlab.com/oauth-xx/oauth2/-/blob/main/lib/oauth2/client.rb) for more details
 
 ```ruby
 Rails.application.config.middleware.use OmniAuth::Builder do
   provider :y8_account, APP_CONFIG[:app_id], APP_CONFIG[:app_secret],
-           :client_options => {:site => "http://custom.y8_account.server.org/",
-                               :authorize_url => "http://custom.y8_account.server.org/oauth/authorize",
-                               :token_url => "http://custom.y8_account.server.org/oauth/token"
-                             }
+           client_options: {
+             site: "http://custom.y8_account.server.org/",
+             authorize_url: "http://custom.y8_account.server.org/oauth/authorize",
+             token_url: "http://custom.y8_account.server.org/oauth/token"
+           }
 end
 ```
 If no `:client_options` passed, default `https://account.y8.com/` provider URL will be used.

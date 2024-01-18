@@ -15,8 +15,8 @@ Gem::Specification.new do |gem|
   gem.require_paths = ['lib']
   gem.version       = OmniAuth::Y8Account::VERSION
 
-  gem.add_dependency 'omniauth', '~> 1.9'
-  gem.add_dependency 'omniauth-oauth2', '~> 1.7'
+  gem.add_dependency 'omniauth', '~> 2.1'
+  gem.add_dependency 'omniauth-oauth2', '~> 1.8'
   gem.add_development_dependency 'rspec'
   gem.add_development_dependency 'simplecov'
 end
